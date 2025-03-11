@@ -1,0 +1,96 @@
+.main-home-container{
+  padding: 1.3rem;
+}
+
+.top-home-boxes{
+  display: flex;
+  justify-content: start;
+  /* margin-bottom: 1rem; */
+}
+.boxx{
+  display: flex;
+  gap:1.4rem;
+  background-color: #f1f1f1;
+  height: 5rem;
+  width: 14rem;
+  padding: 1.2rem;
+  border-radius: 5px;
+  /* justify-content: start; */
+}
+.boxx-content{
+  line-height: 22px;
+}
+.boxx-content h4{
+  font-size: 20px;
+  font-weight: 600;
+}
+.box-icon{
+  font-weight: 100 !important;
+  font-size: 2rem;
+  background-color:#f5e4d7;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.first-col{
+  width: 80%;
+}
+
+/* copyyy of home */
+
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.Home-table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-bottom: 2rem; */
+}
+
+.Home-table th,
+.Home-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.Home-table th {
+  font-size: 15px;
+}
+
+
+/* css */
+
+
+.pagination {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 10px;
+   /* position: fixed;
+  bottom: 5%;  */
+}
+
+.pagination button {
+  border: none;
+  background: #ffffff;
+  padding: 8px 12px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.pagination button.active {
+  background: #e0e0e0;
+  /* color: white;
+   */
+   color:black;
+  font-weight: bold;
+}
+
+
