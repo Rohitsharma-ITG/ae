@@ -49,7 +49,7 @@ const Route = () => {
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Number</th>
+                {/* <th>Number</th> */}
                 <th>Plan</th>
                 <th>Shop</th>
                 <th>Action</th>
@@ -60,18 +60,31 @@ const Route = () => {
             </tbody>
           </table>
 
-          <div className="pagination">
-            <button onClick={goToPreviousPage} disabled={currentPage === 1}>&lt;</button>
-            {Array.from({ length: totalPages }, (_, i) => (
-              <button
-                key={i + 1}
-                className={currentPage === i + 1 ? 'active' : ''}
-                onClick={() => paginate(i + 1)}
-              >
-                {i + 1}
-              </button>
-            ))}
-            <button onClick={goToNextPage} disabled={currentPage === totalPages}>&gt;</button>
+                <div className="pagination">
+            <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+              &lt;
+            </button>
+          
+            {Array.from({ length: totalPages }, (_, i) => i + 1)
+              .filter((page) =>
+                page === 1 || page === totalPages || 
+                (page >= currentPage - 1 && page <= currentPage + 1)
+              )
+              .map((page, index, arr) => (
+                <React.Fragment key={page}>
+                  {index > 0 && page !== arr[index - 1] + 1 && <span>...</span>}
+                  <button
+                    className={currentPage === page ? 'active' : ''}
+                    onClick={() => paginate(page)}
+                  >
+                    {page}
+                  </button>
+                </React.Fragment>
+              ))}
+          
+            <button onClick={goToNextPage} disabled={currentPage === totalPages}>
+              &gt;
+            </button>
           </div>
         </div>
       </div>

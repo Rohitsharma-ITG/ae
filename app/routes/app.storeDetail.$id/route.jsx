@@ -12,8 +12,9 @@ const PartnerDetail = () => {
   const [activeTab, setActiveTab] = useState("profile");
   const [storeDetail,setstoreDetail]=useState();
   const { id } = useParams();
-  console.log("storeeeeeeeeeeeeeee")
- if (id) {
+
+
+  if (id) {
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,7 +28,6 @@ const PartnerDetail = () => {
         const data = await response.json();
          setstoreDetail(data);
 
-        console.log('data888888',data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -42,7 +42,6 @@ const PartnerDetail = () => {
     { id: "features", label: "App Features", icon: <FiUser /> },
     { id: "settings", label: "Settings", icon: <FiUser /> },
   ];
-console.log("storedetailll",setstoreDetail)
   const renderComponent = () => {
     switch (activeTab) {
       case "profile":
