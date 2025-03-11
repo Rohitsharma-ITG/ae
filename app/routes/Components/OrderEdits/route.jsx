@@ -9,7 +9,23 @@ const orderEditss = () => {
     const [loading,setLoading]=useState(true);
     // const[error,setError]=useState("")
   const {id}=useParams();
-  console.log("iddd",id)
+ 
+  const handlePost=async()=>{
+      try {
+        const response = await fetch(`/api/orders/${id}`,{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          }, 
+          body: JSON.stringify({orderAction:"add_item"})
+        });
+        const data = await response.json();
+
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
     
     useEffect(() => {
       const fetchData = async () => {
@@ -42,8 +58,10 @@ const orderEditss = () => {
       <h2>Orders</h2>
       <p>List of stores connected to services</p>
     </div> */}
+    <button onClick={handlePost}>Post</button>
     <div className="table-wrapper">
       <table className="partner-table">
+
         <thead>
           <tr>
             <th>OrderId</th>
