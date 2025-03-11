@@ -7,7 +7,7 @@ dotenv.config();
 export const loader = async () => {
 
   const database = mongoose.connection.useDb(process.env.DATABASE_NAME);
-  const data = await database.collection("Partners").find().toArray();
+  const data = await database.collection("partners").find().toArray();
 //   console.log('daata',data);
   return json(data);
 };
@@ -19,7 +19,7 @@ export const action = async ({ request }) => {
         const id = await request.json();
         const objectId = new mongoose.Types.ObjectId(id);
         const database = mongoose.connection.useDb(process.env.DATABASE_NAME);
-        const data = await database.collection("Partners").findOne({ _id: objectId });
+        const data = await database.collection("partners").findOne({ _id: objectId });
         if (!data) {
             return json({ message: 'No Data Found' }, { status: 404 });
         }

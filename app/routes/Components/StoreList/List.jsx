@@ -8,7 +8,6 @@ const List = ({ partners }) => {
   const navigate=useNavigate()
 
   const handleNavigate=(id)=>{
-    console.log("runn")
     navigate(`/app/storedetail/${id}`)
   }
 
