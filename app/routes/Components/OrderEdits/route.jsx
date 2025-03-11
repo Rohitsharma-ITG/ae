@@ -20,7 +20,7 @@ const orderEditss = () => {
           body: JSON.stringify({orderAction:"add_item"})
         });
         const data = await response.json();
-
+       console.log("data==",data)
 
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -44,6 +44,8 @@ const orderEditss = () => {
       };
       fetchData();
     }, []);
+
+
     const totalPages = Math.ceil(orders.length / itemsPerPage);
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
