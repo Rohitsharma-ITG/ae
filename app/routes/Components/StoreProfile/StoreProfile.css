@@ -79,6 +79,9 @@ button.customize-btn {background: #8f43ff;color: #ffff;height: 2rem;}
 
 .input-group {
   margin-bottom: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
 }
 
 .input-group label {
@@ -87,13 +90,14 @@ button.customize-btn {background: #8f43ff;color: #ffff;height: 2rem;}
   margin-bottom: 5px;
 }
 
-.input-group input,
-.input-group select {
-  width: 100%;
+.input-group input, .input-group select {
+  width: 14rem;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
 }
+
 
 .submit-btn {
   width: 100%;
@@ -185,4 +189,9 @@ h3 {
 
 .modal-btn button:last-child:hover {
   background: #b0b0b0;
+}
+
+.modal-content{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
 }
