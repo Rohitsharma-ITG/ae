@@ -30,10 +30,10 @@ export async function action({ request }) {
             plan: {
               appRecurringPricingDetails: {
                 price: {
-                  amount: 10,
+                  amount: price,
                   currencyCode: "USD"
                 },
-                interval: "EVERY_30_DAYS"
+                interval: interval
               }
             }
           }
@@ -48,7 +48,7 @@ export async function action({ request }) {
     return json({ error: data.data.appSubscriptionCreate.userErrors });
   }
 
-  return json({ url: data.data.appSubscriptionCreate.confirmationUrl });
+  return json({ url: data.data.appSubscriptionCreate });
 }
 
 

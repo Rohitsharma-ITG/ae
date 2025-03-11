@@ -110,7 +110,6 @@ const orderEditss = () => {
       )}
 
       <div className="table-wrapper">
-        <button onClick={handlelink}>createlink</button>
         <table className="partner-table">
           <thead>
             <tr>
