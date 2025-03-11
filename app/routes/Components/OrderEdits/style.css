@@ -7,11 +7,10 @@
   border-bottom: 1px solid #ddd;
   padding-bottom: 1rem;
 }
-.main-partner-container{
-  padding: 1.3rem;
-}
+
 .main-partner-container {
   padding: 20px;
+  position: relative;
 }
 
 .top-heading h2 {
@@ -97,25 +96,29 @@
 /* Filter Button */
 /* Filter Button */
 .apply-filter-btn {
-  background-color: #008060;
-  color: white;
+  background-color: #f1f1f1;
+  color: black;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 13px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
+  margin-right: 0;
+}
+.apply-filter-btn:hover{
+  background-color: #c0b0b0;
 }
 
 .filter-box {
   position: absolute;
-  top: 50px;
-  left: 20px;
+  top: 80px;
+  padding: 0;
+  left: 18px;
+  width: 225px;
   background: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 15px;
   border-radius: 5px;
-  width: 250px;
 }
 
 .close-icon-btn {
@@ -154,6 +157,8 @@
   margin-top: 5px;
   border-radius: 5px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  height: 135px;
+  overflow-y: scroll;
 }
 
 .checkbox-label {
@@ -198,9 +203,15 @@
 /* .pagination .active {
   background: #005a40;
 } */
+ .clear-filter-btn{
+  background: transparent;
+  border: none;
+  color: blue;
+  cursor: pointer;
+ }
 .filterr{
   display: flex;
-
+/* justify-content: flex-end; */
 }
 .selct-itemss{
   display: flex;
@@ -212,6 +223,29 @@
   background-color: gray;
 }
 .selct-itemss p{
-  background-color: antiquewhite;
+  background-color: #f1f1f1;
+  padding: 3px 5px;
   margin: 5px;
+  flex-wrap: wrap;
+}
+
+.pg-button{
+  border: none;
+  background: #f1f1f1 !important;
+  padding: 8px 12px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+.filterr {
+  align-items: baseline;
 }
