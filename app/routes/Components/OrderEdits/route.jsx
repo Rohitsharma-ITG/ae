@@ -57,6 +57,17 @@ const orderEditss = () => {
     };
     fetchData();
   }, []);
+  
+  const handlelink = async () => {
+    fetch('/api/subscription', {
+      method: 'POST',
+      body: JSON.stringify({
+        price: 10.0,
+        interval: 'EVERY_30_DAYS'
+       }),
+    });
+  }
+
 
   const totalPages = Math.ceil(orders.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -99,6 +110,7 @@ const orderEditss = () => {
       )}
 
       <div className="table-wrapper">
+        <button onClick={handlelink}>createlink</button>
         <table className="partner-table">
           <thead>
             <tr>

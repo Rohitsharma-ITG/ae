@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "80394bd99ceb91c1f20019f9a91bd697"
-application_url = "https://modeling-auditor-section-eventually.trycloudflare.com"
+application_url = "https://susan-plans-preference-weekends.trycloudflare.com"
 embedded = true
 name = "account-dev"
 handle = "account-dev-1"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://modeling-auditor-section-eventually.trycloudflare.com/auth/callback",
-  "https://modeling-auditor-section-eventually.trycloudflare.com/auth/shopify/callback",
-  "https://modeling-auditor-section-eventually.trycloudflare.com/api/auth/callback"
+  "https://susan-plans-preference-weekends.trycloudflare.com/auth/callback",
+  "https://susan-plans-preference-weekends.trycloudflare.com/auth/shopify/callback",
+  "https://susan-plans-preference-weekends.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
