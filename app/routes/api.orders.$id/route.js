@@ -18,6 +18,9 @@ export const action = async ({request,params}) => {
     if (request.method === 'POST') {
         const id = params.id;
         const {orderAction} = await request.json();
+        if (orderAction.length === 0) {
+            return json({message: 'Bad Request'}, {status : 400});
+        }
         const partnerId = new mongoose.Types.ObjectId(id);
         const database = mongoose.connection.useDb(process.env.DATABASE_NAME);
         const data = await database.collection("ordereditinghistories").find({
