@@ -21,16 +21,16 @@ const StoreProfile = ({storeinfo}) => {
             <p>{storeinfo?.shopJson?.name}</p>
           </div>
          
-          <div className='sec-div'>
+          {/* <div className='sec-div'>
             <h4>Package Name:</h4>
             <p>Com.itg.Mob65859769867678687</p>
-          </div>
+          </div> */}
          
         </div>
         <div className="section">
           <div className='sec-div'>
             <h4>Plan Type :</h4>
-            <button>NA</button>
+            <button>{storeinfo?.interval}</button>
           </div>
           <div className='sec-div'>
             <h4>Shop Owner:</h4>
@@ -41,10 +41,10 @@ const StoreProfile = ({storeinfo}) => {
             <p>{storeinfo?.shopJson?.customer_email
             }</p>
           </div>
-          <div className='sec-div'>
+          {/* <div className='sec-div'>
             <h4>Plan Name:</h4>
             <p>{storeinfo?.planName}</p>
-          </div>
+          </div> */}
          
         </div>
         <div className="section">
@@ -57,10 +57,10 @@ const StoreProfile = ({storeinfo}) => {
             <p>{storeinfo?.myshopify_domain
             }</p>
           </div>
-          <div className='sec-div'>
+          {/* <div className='sec-div'>
             <h4>Phone No. :</h4>
             <p>{storeinfo?.shopJson.phone ?storeinfo.shopJson.phone  : "Null" }</p>
-          </div>
+          </div> */}
           <div className='sec-div'>
             <h4>Amount:</h4>
             <p>{storeinfo?.amount}</p>
