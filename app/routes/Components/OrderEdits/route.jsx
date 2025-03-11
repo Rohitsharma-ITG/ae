@@ -36,7 +36,7 @@ const orderEditss = () => {
         body: JSON.stringify({ orderAction: selectedActions }),
       });
       const data = await response.json();
-      console.log("Filtered Orders:", data);
+      setOrders(data);
       setFilterOpen(false);
     } catch (error) {
       console.error("Error filtering data:", error);
