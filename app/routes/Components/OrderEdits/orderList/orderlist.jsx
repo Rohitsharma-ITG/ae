@@ -1,7 +1,6 @@
 import React from 'react'
 
 const orderlist = ({orders}) => {
-  // console.log(orders)
   return (
     <>
       {orders.length > 0 ? (
@@ -11,7 +10,8 @@ const orderlist = ({orders}) => {
             <td>{order?.orderId}</td>
             <td>{order?.orderAction}</td>
             {/* <td>{partner.phone}</td> */}
-            <td>{order?.customerId}</td>
+            <td>{order?.customerId?.split('/').pop()}</td>
+
             <td>{order?.createdAt}</td>
             <td >
            

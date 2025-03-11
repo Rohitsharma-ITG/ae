@@ -1,8 +1,7 @@
 import React from 'react'
 import './StoreProfile.css'
 const StoreProfile = ({storeinfo}) => {
-  console.log("storeprofileeeee")
-  console.log("propssss",storeinfo)
+
   return (
     <>
     <div className="profilee-main-container">

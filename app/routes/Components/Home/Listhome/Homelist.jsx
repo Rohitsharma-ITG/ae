@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Homelist = ({ stores }) => {
-  console.log("storee",stores)
   return (
     <>
       {stores.length > 0 ? (
