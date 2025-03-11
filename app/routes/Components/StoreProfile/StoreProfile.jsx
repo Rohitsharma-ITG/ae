@@ -5,6 +5,17 @@ const StoreProfile = ({ storeinfo }) => {
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
+ const handlelink = async () => {
+    const data=await fetch('/api/subscription', {
+      method: 'POST',
+      body: JSON.stringify({
+        price: 10.0,
+        interval: 'EVERY_30_DAYS'
+       }),
+    });
+    const res=await data.json();
+    console.log("dataaaaaa",res)
+  }
 
   return (
     <>
@@ -84,7 +95,7 @@ const StoreProfile = ({ storeinfo }) => {
                   <option>Yearly</option>
                 </select>
               </div>
-              <button className="submit-btn">Submit</button>
+              <button className="submit-btn" onClick={handlelink}>Submit</button>
             </div>
           </div>
         </div>

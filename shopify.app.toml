@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "80394bd99ceb91c1f20019f9a91bd697"
-application_url = "https://television-sealed-mustang-forests.trycloudflare.com"
+application_url = "https://amenities-carlos-handheld-emma.trycloudflare.com"
 embedded = true
 name = "account-dev"
 handle = "account-dev-1"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://television-sealed-mustang-forests.trycloudflare.com/auth/callback",
-  "https://television-sealed-mustang-forests.trycloudflare.com/auth/shopify/callback",
-  "https://television-sealed-mustang-forests.trycloudflare.com/api/auth/callback"
+  "https://amenities-carlos-handheld-emma.trycloudflare.com/auth/callback",
+  "https://amenities-carlos-handheld-emma.trycloudflare.com/auth/shopify/callback",
+  "https://amenities-carlos-handheld-emma.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
