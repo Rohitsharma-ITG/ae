@@ -36,5 +36,9 @@
 }
 .tabs-partnerdetail-box.active{
   background-color: #8f43ff;
+
   /* transition: .2s; */
+}
+.tabs-partnerdetail-box.active h4{
+  color: #ffffff;
 }
