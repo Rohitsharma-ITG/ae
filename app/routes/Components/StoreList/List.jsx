@@ -20,7 +20,7 @@ const List = ({ partners }) => {
           <tr key={index}>
             <td>{partner?.shopJson?.name}</td>
             <td>{partner?.shopJson?.customer_email}</td>
-            <td>{partner.phone}</td>
+            {/* <td>{partner.phone}</td> */}
             <td>{partner.planName}</td>
             <td>{partner.myshopify_domain}</td>
             <td >

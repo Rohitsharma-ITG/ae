@@ -1,0 +1,94 @@
+.main-partner-container h2{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.top-heading{
+  line-height: 25px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+.main-partner-container{
+  padding: 1.3rem;
+}
+.main-partner-container {
+  padding: 20px;
+}
+
+.top-heading h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.top-heading p {
+  font-size: 14px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.partner-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.partner-table th,
+.partner-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.partner-table th {
+  font-size: 15px;
+}
+
+
+/* css */
+
+
+.pagination {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 10px;
+   /* position: fixed;
+  bottom: 5%; 
+} */
+}
+
+.pagination button {
+  border: none;
+  background: #ffffff;
+  padding: 8px 12px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.pagination button.active {
+  background: #e0e0e0;
+  /* color: white;
+   */
+   color:black;
+  font-weight: bold;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  margin: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn.delete {
+  background-color: red;
+  color: white;
+}
+
+.action-btn:hover {
+  opacity: 0.8;
+}
