@@ -79,8 +79,8 @@ const Route = () => {
 
             {/* Pagination Section */}
             <div className="pagination">
-  <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-    &lt;
+  <button onClick={goToPreviousPage} disabled={currentPage === 1} className="pg-button">
+    pre
   </button>
 
   {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -100,8 +100,8 @@ const Route = () => {
       </React.Fragment>
     ))}
 
-  <button onClick={goToNextPage} disabled={currentPage === totalPages}>
-    &gt;
+  <button onClick={goToNextPage} disabled={currentPage === totalPages} className="pg-button">
+    next
   </button>
 </div>
 

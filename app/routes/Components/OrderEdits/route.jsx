@@ -67,6 +67,7 @@ const OrderEditss = () => {
   };
 
   const clearFilters = async () => {
+    setFilterOpen(false);
     setSelectedActions([]);
     // setSelectedDate("");
     // setSelectedCustomer("");
