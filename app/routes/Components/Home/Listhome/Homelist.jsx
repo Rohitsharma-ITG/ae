@@ -8,8 +8,7 @@ const Homelist = ({ stores }) => {
          <>
           <tr key={index}>
             <td>{store.myshopify_domain}</td>
-            {/* <td>{store.android}</td>
-            <td>{store. ios}</td> */}
+        
             
            
           </tr>

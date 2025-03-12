@@ -8,7 +8,6 @@ export const loader = async () => {
 
   const database = mongoose.connection.useDb(process.env.DATABASE_NAME);
   const data = await database.collection("partners").find().toArray();
-//   console.log('daata',data);
   return json(data);
 };
 

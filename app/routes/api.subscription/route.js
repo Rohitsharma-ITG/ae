@@ -8,7 +8,8 @@ export async function action({ request }) {
   const { admin } = await authenticate.admin(request);
 
   const body = await request.json();
-  const { price, interval } = body;
+  const { price, interval ,trialDays} = body;
+  console.log(price, interval ,trialDays);
  
   const response = await admin.graphql(
     `#graphql

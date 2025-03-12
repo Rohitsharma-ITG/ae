@@ -1,7 +1,6 @@
 
 .profilee-main-container{
   padding: .8rem .5rem;
-  /* overflow: hidden; */
 }
 .profilee-main-container h2{
   font-size: 1.2rem;
@@ -15,7 +14,6 @@ padding-bottom: 1rem;
 .profile-sections{
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
   margin-top: 1rem;
   gap: 1rem;
   
@@ -41,7 +39,6 @@ padding-bottom: 1rem;
 }
 .section{
   flex: 30%;
-  /* flex: 1; */
 }
 button.customize-btn {background: #8f43ff;color: #ffff;height: 2rem;}
 

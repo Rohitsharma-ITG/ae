@@ -4,8 +4,8 @@ import "./StoreProfile.css";
 
 const StoreProfile = ({ storeinfo }) => {
   const [showModal, setShowModal] = useState(false);
-  const [showModal2, setShowModal2] = useState(false);
   const [amount, setAmount] = useState(""); 
+  const [trialDays,setTrialDays]=useState("");
   const [planType, setPlanType] = useState(""); 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); 
@@ -22,6 +22,7 @@ const StoreProfile = ({ storeinfo }) => {
         body: JSON.stringify({
           price: parseFloat(amount),
           interval: planType, 
+          trialDays
         }),
       });
 
@@ -63,11 +64,7 @@ const StoreProfile = ({ storeinfo }) => {
                 Customize Plan
               </button>
             </div>
-            <div className="sec-div">
-              <button className="customize-btn" onClick={() => setShowModal2(true)}>
-                Zero Amount Customize Plan
-              </button>
-            </div>
+           
           </div>
           <div className="section">
             <div className="sec-div">
@@ -122,6 +119,15 @@ const StoreProfile = ({ storeinfo }) => {
                   <option value="ANNUAL">Yearly</option>
                 </select>
               </div>
+              <div className="input-group">
+                <label>TrialDays</label>
+                <input
+                  type="text"
+                  placeholder="Enter Trial Days"
+                  value={trialDays}
+                  onChange={(e) => setTrialDays(e.target.value)}
+                />
+              </div>
               <button className="submit-btn" onClick={handlelink} disabled={loading}>
                 {loading ? <span className="spinner"></span> : "Submit"}
               </button>
@@ -130,23 +136,7 @@ const StoreProfile = ({ storeinfo }) => {
         </div>
       )}
 
-      {showModal2 && (
-        <div className="modal-overlay">
-          <div className="modal-container">
-            <button className="close-btn" onClick={() => setShowModal2(false)}>
-              ✖
-            </button>
-            <h3>Activate Plan</h3>
-            <div className="modal-content second-modal">
-              <p>Are you sure you want to activate Custom Plan?</p>
-              <div className="modal-btn">
-                <button>Yes</button>
-                <button>No</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+    
     </>
   );
 };

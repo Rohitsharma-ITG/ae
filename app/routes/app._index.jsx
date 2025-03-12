@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import './app.home/home.css';
 import { FiUsers } from 'react-icons/fi';
-// import Homelist from '../Components/Home/Listhome/Homelist';
 import Homelist from './Components/Home/Listhome/Homelist'
 
 const Route = () => {
@@ -12,7 +11,6 @@ const Route = () => {
   const [error, setError] = useState(null);
   const itemsPerPage = 8;
 
-  // Fetching Data from API
   useEffect(() => {
     const fetchData = async () => {
       try {

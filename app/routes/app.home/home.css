@@ -5,7 +5,6 @@
 .top-home-boxes{
   display: flex;
   justify-content: start;
-  /* margin-bottom: 1rem; */
 }
 .boxx{
   display: flex;
@@ -15,7 +14,6 @@
   width: 14rem;
   padding: 1.2rem;
   border-radius: 5px;
-  /* justify-content: start; */
 }
 .pg-button{
   border: none;
@@ -46,7 +44,6 @@
   width: 80%;
 }
 
-/* copyyy of home */
 
 .table-wrapper {
   overflow-x: auto;
@@ -58,7 +55,6 @@
 .Home-table {
   width: 100%;
   border-collapse: collapse;
-  /* margin-bottom: 2rem; */
 }
 
 .Home-table th,
@@ -73,15 +69,12 @@
 }
 
 
-/* css */
 
 
 .pagination {
   display: flex;
-  /* justify-content: center; */
   margin-top: 10px;
-   /* position: fixed;
-  bottom: 5%;  */
+  bottom: 5%;  
 }
 
 .pagination button {
@@ -95,8 +88,6 @@
 
 .pagination button.active {
   background: #e0e0e0;
-  /* color: white;
-   */
    color:black;
   font-weight: bold;
 }

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './partnerDetail.css';
 import { FiUser } from "react-icons/fi";
-// import PartnerProfile from '../Components/StoreProfile/StoreProfile';
 import StoreProfile from "../Components/StoreProfile/StoreProfile"
 import OrderEditss from "../Components/OrderEdits/route.jsx"
 import { useParams } from '@remix-run/react';
-// import PartnerOrders from '../Components/PartnerProfile/PartnerOrders';
-// import PartnerSettings from '../Components/PartnerProfile/PartnerSettings';
+
 
 const PartnerDetail = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -48,10 +46,7 @@ const PartnerDetail = () => {
         return <StoreProfile storeinfo={storeDetail}/>;
       case "orderEdits":
         return <OrderEditss/>
-      // case "features":
-      //   return <PartnerSettings />;
-      // default:
-      //   return <PartnerProfile />; // Default fallback
+      
     }
   };
 

@@ -9,7 +9,6 @@ const orderlist = ({orders}) => {
           <tr key={index}>
             <td>{order?.orderId}</td>
             <td>{order?.orderAction}</td>
-            {/* <td>{partner.phone}</td> */}
             <td>{order?.customerId?.split('/').pop()}</td>
 
             <td>{order?.createdAt}</td>
