@@ -7,11 +7,10 @@
   border-bottom: 1px solid #ddd;
   padding-bottom: 1rem;
 }
-.main-partner-container{
-  padding: 1.3rem;
-}
+
 .main-partner-container {
   padding: 20px;
+  position: relative;
 }
 
 .top-heading h2 {
@@ -91,4 +90,162 @@
 
 .action-btn:hover {
   opacity: 0.8;
+}
+
+/* filter box  */
+/* Filter Button */
+/* Filter Button */
+.apply-filter-btn {
+  background-color: #f1f1f1;
+  color: black;
+  border: none;
+  padding: 5px 13px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+.apply-filter-btn:hover{
+  background-color: #c0b0b0;
+}
+
+.filter-box {
+  position: absolute;
+  top: 80px;
+  padding: 0;
+  left: 18px;
+  width: 225px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.close-icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-item {
+  padding: 8px 12px;
+  background: #f8f8f8;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.filter-item:hover {
+  background: #e6e6e6;
+}
+
+.action-list {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  height: 135px;
+  overflow-y: scroll;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+}
+
+.checkbox-label input {
+  cursor: pointer;
+}
+
+/* .partner-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.partner-table th, .partner-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+} */
+
+/* .pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background: #008060;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 3px;
+} */
+
+/* .pagination .active {
+  background: #005a40;
+} */
+ .clear-filter-btn{
+  background: transparent;
+  border: none;
+  color: blue;
+  cursor: pointer;
+ }
+.filterr{
+  display: flex;
+/* justify-content: flex-end; */
+}
+.selct-itemss{
+  display: flex;
+}
+.selected-filters{
+  margin-left: 1rem;
+}
+.selected-filer-tag{
+  background-color: gray;
+}
+.selct-itemss p{
+  background-color: #f1f1f1;
+  padding: 3px 5px;
+  margin: 5px;
+  flex-wrap: wrap;
+}
+
+.pg-button{
+  border: none;
+  background: #f1f1f1 !important;
+  padding: 8px 12px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+.filterr {
+  align-items: baseline;
 }

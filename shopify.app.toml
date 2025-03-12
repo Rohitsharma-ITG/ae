@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "80394bd99ceb91c1f20019f9a91bd697"
-application_url = "https://occurrence-mask-fo-fast.trycloudflare.com"
+application_url = "https://syndication-pete-phantom-shark.trycloudflare.com"
 embedded = true
 name = "account-dev"
 handle = "account-dev-1"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://occurrence-mask-fo-fast.trycloudflare.com/auth/callback",
-  "https://occurrence-mask-fo-fast.trycloudflare.com/auth/shopify/callback",
-  "https://occurrence-mask-fo-fast.trycloudflare.com/api/auth/callback"
+  "https://syndication-pete-phantom-shark.trycloudflare.com/auth/callback",
+  "https://syndication-pete-phantom-shark.trycloudflare.com/auth/shopify/callback",
+  "https://syndication-pete-phantom-shark.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

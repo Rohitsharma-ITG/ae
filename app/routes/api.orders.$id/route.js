@@ -1,18 +1,8 @@
 import { json } from "@remix-run/node";
 import mongoose from "mongoose";
 import dotenv from "dotenv"
-import { request } from "http";
 dotenv.config();
 
-
-export const loader = async ({ params }) => {
-  const id = params.id;
-  const database = mongoose.connection.useDb(process.env.DATABASE_NAME);
-  const partnerId = new mongoose.Types.ObjectId(id);
-  
-  const data = await database.collection("ordereditinghistories").find({partnerId}).toArray();
-  return json(data);
-};
 
 
 export const action = async ({request,params}) => {
@@ -21,13 +11,22 @@ export const action = async ({request,params}) => {
         const {orderAction} = await request.json();
         const partnerId = new mongoose.Types.ObjectId(id);
         const database = mongoose.connection.useDb(process.env.DATABASE_NAME);
-        const data = await database.collection("ordereditinghistories").find({partnerId,orderAction}).toArray();
+        let data;
+        if (orderAction.length > 0) {
+            data = await database.collection("ordereditinghistories").find({
+                partnerId,
+                orderAction: { $in: orderAction } 
+            }).toArray();
+        } else if (orderAction.length === 0) {
+            data = await database.collection("ordereditinghistories").find({partnerId}).toArray();
+        }
         if (!data) {
             return json({ message: 'No Data Found' }, { status: 404 });
         }
         return json(data);
     }
 }
+
 
 
 
