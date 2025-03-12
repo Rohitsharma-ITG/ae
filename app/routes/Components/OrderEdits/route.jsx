@@ -67,38 +67,18 @@ const OrderEditss = () => {
   };
 
   const clearFilters = async () => {
+    setFilterOpen(false);
     setSelectedActions([]);
-    // setSelectedDate("");
-    // setSelectedCustomer("");
+  
     await handleFilterChange([]);
   };
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await fetch(`/api/orders/${id}`);
-    //     if (!response.ok) throw new Error("Failed to fetch data");
-    //     const data = await response.json();
-    //     setOrders(data);
-    //     setLoading(false);
-    //   } catch (error) {
-    //     setLoading(false);
-    //   }
-    // };
-
-    // fetchData();
+    
     handleFilterChange([]);
   }, []);
   
-  // const handlelink = async () => {
-  //   fetch('/api/subscription', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       price: 10.0,
-  //       interval: 'EVERY_30_DAYS'
-  //      }),
-  //   });
-  // }
+  
 
 
   const totalPages = Math.ceil(orders.length / itemsPerPage);
@@ -129,16 +109,7 @@ const OrderEditss = () => {
                 </label>
               ))}
             </div>
-            {/* <div className="filter-item">Filter by Date</div>
-            <input type="date" value={selectedDate} onChange={(e) => {
-              setSelectedDate(e.target.value);
-              handleFilterChange(selectedActions, e.target.value, selectedCustomer);
-            }} />
-            <div className="filter-item">Filter by Customer</div>
-            <input type="text" placeholder="Enter Customer ID" value={selectedCustomer} onChange={(e) => {
-              setSelectedCustomer(e.target.value);
-              handleFilterChange(selectedActions, selectedDate, e.target.value);
-            }} /> */}
+           
           </div>
   
           
@@ -146,15 +117,12 @@ const OrderEditss = () => {
       )}
       { selectedActions.length>0 &&
          <div className="selected-filters">
-        {/* <p>Selected Filters:</p> */}
         <div className="selct-itemss">
         {selectedActions.map((action) => (
          
           <p key={action}> {action} <FiX onClick={() => removeSelectedFilter("action", action)} /></p>
         ))}
                 <button className="clear-filter-btn" onClick={clearFilters}>Clear All</button></div>
-        {/* {selectedDate && <p>Date: {selectedDate} <FiX onClick={() => removeSelectedFilter("date", selectedDate)} /></p>} */}
-        {/* {selectedCustomer && <p>Customer: {selectedCustomer} <FiX onClick={() => removeSelectedFilter("customer", selectedCustomer)} /></p>} */}
       </div>
       }
       </div>

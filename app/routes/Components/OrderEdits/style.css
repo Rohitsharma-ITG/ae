@@ -52,11 +52,8 @@
 
 .pagination {
   display: flex;
-  /* justify-content: center; */
   margin-top: 10px;
-   /* position: fixed;
-  bottom: 5%; 
-} */
+ 
 }
 
 .pagination button {
@@ -70,8 +67,7 @@
 
 .pagination button.active {
   background: #e0e0e0;
-  /* color: white;
-   */
+
    color:black;
   font-weight: bold;
 }
@@ -92,9 +88,7 @@
   opacity: 0.8;
 }
 
-/* filter box  */
-/* Filter Button */
-/* Filter Button */
+
 .apply-filter-btn {
   background-color: #f1f1f1;
   color: black;
@@ -172,37 +166,7 @@
   cursor: pointer;
 }
 
-/* .partner-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
 
-.partner-table th, .partner-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-} */
-
-/* .pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination button {
-  background: #008060;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 3px;
-} */
-
-/* .pagination .active {
-  background: #005a40;
-} */
  .clear-filter-btn{
   background: transparent;
   border: none;
@@ -211,7 +175,6 @@
  }
 .filterr{
   display: flex;
-/* justify-content: flex-end; */
 }
 .selct-itemss{
   display: flex;

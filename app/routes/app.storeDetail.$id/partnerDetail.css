@@ -12,14 +12,12 @@
   border-radius: 8px;
   padding: 0 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px; */
 }
 .top-tabs-partnerDetail{
   display: flex;
   justify-content: center;
 
   gap:2rem;
-  /* justify-content: space-evenly; */
 }
 .tab-icon{
  height: 2rem;
@@ -40,7 +38,6 @@
 .tabs-partnerdetail-box.active{
   background-color: #8f43ff;
 
-  /* transition: .2s; */
 }
 .tabs-partnerdetail-box.active h4{
   color: #ffffff;

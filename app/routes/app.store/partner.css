@@ -48,17 +48,12 @@
 }
 
 
-/* css */
 
 
 .pagination {
   display: flex;
-  /* justify-content: center; */
   margin-top: 10px;
-   /* position: fixed;
-  bottom: 5%; 
-} */
-}
+} 
 
 .pagination button {
   border: none;
@@ -71,8 +66,7 @@
 
 .pagination button.active {
   background: #e0e0e0;
-  /* color: white;
-   */
+ 
    color:black;
   font-weight: bold;
 }

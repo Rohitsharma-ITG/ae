@@ -7,7 +7,6 @@ const Route = () => {
   const itemsPerPage = 8; 
   const [partners, setpartners] = useState([]);
   const [loading,setLoading]=useState(true);
-  // const[error,setError]=useState("")
 
   
   useEffect(() => {
@@ -49,7 +48,6 @@ const Route = () => {
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                {/* <th>Number</th> */}
                 <th>Plan</th>
                 <th>Shop</th>
                 <th>Action</th>
@@ -61,8 +59,8 @@ const Route = () => {
           </table>
 
                 <div className="pagination">
-            <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-              &lt;
+            <button onClick={goToPreviousPage} disabled={currentPage === 1} className="pg-button">
+              pre
             </button>
           
             {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -82,8 +80,8 @@ const Route = () => {
                 </React.Fragment>
               ))}
           
-            <button onClick={goToNextPage} disabled={currentPage === totalPages}>
-              &gt;
+            <button onClick={goToNextPage} disabled={currentPage === totalPages} className="pg-button">
+              next
             </button>
           </div>
         </div>
