@@ -1,21 +1,46 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // For navigation
 import "./StoreProfile.css";
 
 const StoreProfile = ({ storeinfo }) => {
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [amount, setAmount] = useState(""); 
+  const [planType, setPlanType] = useState(""); 
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); 
 
- const handlelink = async () => {
-    const data=await fetch('/api/subscription', {
-      method: 'POST',
-      body: JSON.stringify({
-        price: 10.0,
-        interval: 'EVERY_30_DAYS'
-       }),
-    });
-    const res=await data.json();
-    console.log("dataaaaaa",res)
-  }
+  const handlelink = async () => {
+    setShowModal(false);
+    setLoading(true);
+    try {
+      const response = await fetch("/api/subscription", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          price: parseFloat(amount),
+          interval: planType, 
+        }),
+      });
+
+      const res = await response.json();
+      console.log("API Response:", res?.url?.confirmationUrl);
+
+      if (res?.url?.confirmationUrl) {
+         window.location.href='https://admin.shopify.com/store/itgeeksabhi/charges/227635167233/25032654922/RecurringApplicationCharge/confirm_recurring_application_charge?signature=BAh7BzoHaWRsKwhKABDUBQA6EmF1dG9fYWN0aXZhdGVU--572d3d569d90a87f0372780014293c74fb651fe2'; 
+        //  navigate(res?.url?.confirmationUrl); 
+        //  window.location.replace(res?.url?.confirmationUrl);
+        //  navigate(`https://admin.shopify.com/store/itgeeksabhi/charges/227635167233/25032654922/RecurringApplicationCharge/confirm_recurring_application_charge?signature=BAh7BzoHaWRsKwhKABDUBQA6EmF1dG9fYWN0aXZhdGVU--572d3d569d90a87f0372780014293c74fb651fe2`)
+
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -44,7 +69,9 @@ const StoreProfile = ({ storeinfo }) => {
               </button>
             </div>
             <div className="sec-div">
-              <button className="customize-btn" onClick={() => setShowModal2(true)}>Zero Amount Customize Plan</button>
+              <button className="customize-btn" onClick={() => setShowModal2(true)}>
+                Zero Amount Customize Plan
+              </button>
             </div>
           </div>
           <div className="section">
@@ -85,21 +112,29 @@ const StoreProfile = ({ storeinfo }) => {
             <div className="modal-content">
               <div className="input-group">
                 <label>Amount</label>
-                <input type="text" placeholder="Enter amount" />
+                <input
+                  type="text"
+                  placeholder="Enter amount"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)} // Update state
+                />
               </div>
               <div className="input-group">
                 <label>Type</label>
-                <select>
-                  <option>Select Type</option>
-                  <option>Monthly</option>
-                  <option>Yearly</option>
+                <select value={planType} onChange={(e) => setPlanType(e.target.value)}>
+                  <option value="">Select Type</option>
+                  <option value="EVERY_30_DAYS">Monthly</option>
+                  <option value="ANNUAL">Yearly</option>
                 </select>
               </div>
-              <button className="submit-btn" onClick={handlelink}>Submit</button>
+              <button className="submit-btn" onClick={handlelink} disabled={loading}>
+                {loading ? <span className="spinner"></span> : "Submit"}
+              </button>
             </div>
           </div>
         </div>
       )}
+
       {showModal2 && (
         <div className="modal-overlay">
           <div className="modal-container">
@@ -108,13 +143,12 @@ const StoreProfile = ({ storeinfo }) => {
             </button>
             <h3>Activate Plan</h3>
             <div className="modal-content second-modal">
-  <p>Are you sure you want to activate Custom Plan?</p>
-  <div className="modal-btn">
-    <button>Yes</button>
-    <button>No</button>
-  </div>
-</div>
-
+              <p>Are you sure you want to activate Custom Plan?</p>
+              <div className="modal-btn">
+                <button>Yes</button>
+                <button>No</button>
+              </div>
+            </div>
           </div>
         </div>
       )}
