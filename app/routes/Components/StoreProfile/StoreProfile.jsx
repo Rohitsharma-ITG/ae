@@ -40,7 +40,7 @@ const StoreProfile = ({ storeinfo }) => {
 
       sendPlanDetail();
     }
-  }, [chargeId, id]);s
+  }, [chargeId, id]);
 
   const handlelink = async () => {
     setLoading(true);
