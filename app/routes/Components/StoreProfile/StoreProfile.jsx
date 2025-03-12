@@ -5,42 +5,24 @@ import { useLocation, useParams } from "react-router-dom";
 const StoreProfile = ({ storeinfo }) => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const chargeId = queryParams.get("charge_id");
-  const { id } = useParams(); 
+  const chargeId= queryParams.get("charge_id");
 
+  const { id } = useParams();
 
-  console.log("Charge ID:", chargeId);
-  console.log("Store ID:", id);
 
   const [showModal, setShowModal] = useState(false);
   const [amount, setAmount] = useState("");
-  const [trialDays, setTrialDays] = useState();
+  const [trialDays, setTrialDays] = useState("");
   const [planType, setPlanType] = useState("");
   const [loading, setLoading] = useState(false);
-  const [subscribeId,setSubscibeId]=useState(null);
- 
-  // const sendPlanDetailaftersubscribe = async () => {
-        
-  //   try {
-  //     const response = await fetch(`/api/plandetail/${id}`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         id: chargeId, 
-  //         planType
-  //       }),
-  //     });
+  const [subscribeId, setSubscibeId] = useState("");
 
-  //     const data = await response.json();
-  //     console.log("Plan Detail Response:", data);
-  //   } catch (error) {
-  //     console.error("Error sending plan details:", error);
-  //   }
-  // };
   const sendPlanDetail = async () => {
-        
+    console.log("loggg",chargeId,subscribeId)
+    
+
+    if (!subscribeId && !chargeId) return; 
+console.log(chargeId,"chrrr")
     try {
       const response = await fetch(`/api/plandetail/${id}`, {
         method: "POST",
@@ -48,18 +30,18 @@ const StoreProfile = ({ storeinfo }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          chargeId : chargeId, 
-          interval:planType,
-          subscribeId
+          chargeId,
+          interval: planType,
+          subscribeId,
         }),
       });
 
       const data = await response.json();
-      console.log("Plan Detail Response:", data);
     } catch (error) {
       console.error("Error sending plan details:", error);
     }
   };
+
   const handlelink = async () => {
     setLoading(true);
     try {
@@ -71,17 +53,20 @@ const StoreProfile = ({ storeinfo }) => {
         body: JSON.stringify({
           price: parseFloat(amount),
           interval: planType,
-          trialDays,
+          trialDays: parseInt(trialDays),
         }),
       });
 
       const res = await response.json();
-      console.log("res",res?.url?.appSubscription?.id)
-     setSubscibeId(res?.url?.appSubscription?.id);
+      const subscribe = res?.url?.appSubscription?.id;
 
-       sendPlanDetail();
-      if (res?.url?.confirmationUrl) {
-        window.open(res?.url?.confirmationUrl, "_blank");
+
+      if (subscribe) {
+        setSubscibeId(subscribe);
+
+        if (res?.url?.confirmationUrl) {
+          window.open(res?.url?.confirmationUrl, "_blank");
+        }
       }
     } catch (error) {
       console.error("Error:", error);
@@ -92,12 +77,19 @@ const StoreProfile = ({ storeinfo }) => {
       setTrialDays("");
     }
   };
-  useEffect(() => {
-    if (chargeId) {
-     sendPlanDetail();
-    }
-  }, [chargeId]);
 
+  useEffect(() => {
+    console.log("subsc",chargeId)
+    if (subscribeId) {
+      sendPlanDetail();
+    }
+    if (chargeId) {
+      console.log("run",chargeId)
+      sendPlanDetail();
+    }
+  }, [subscribeId,chargeId]);
+
+ 
   return (
     <>
       <div className="profilee-main-container">

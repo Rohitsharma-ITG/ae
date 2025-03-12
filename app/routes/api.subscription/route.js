@@ -10,16 +10,17 @@ export async function action({ request }) {
   const { admin } = await authenticate.admin(request);
 
   const body = await request.json();
-  const { price, interval ,trialDays} = body;
- 
+  const { price, interval ,trialDays } = body;
+  
   const response = await admin.graphql(
     `#graphql
     mutation AppSubscriptionCreate(
       $name: String!
       $lineItems: [AppSubscriptionLineItemInput!]!
       $returnUrl: URL!
+      $trialDays: Int!
     ) {
-      appSubscriptionCreate(name: $name, returnUrl: $returnUrl, lineItems: $lineItems, test: true) {
+      appSubscriptionCreate(name: $name, returnUrl: $returnUrl, lineItems: $lineItems, test: true ,trialDays:$trialDays,) {
         userErrors {
           field
           message
@@ -32,8 +33,9 @@ export async function action({ request }) {
     }`,
     {
       variables: {
-        name: "aeSubscription",
+        name: "customize",
         returnUrl: process.env.RETURN_URL, 
+        trialDays:Number(trialDays),
         lineItems: [
           {
             plan: {

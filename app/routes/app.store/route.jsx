@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import './partner.css';
-import List from '../Components/StoreList/list';
+import List from '../Components/StoreList/List';
 
 const Route = () => {
   const [currentPage, setCurrentPage] = useState(1);
