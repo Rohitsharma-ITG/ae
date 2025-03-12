@@ -43,7 +43,10 @@ const handleSubmit=()=>{
           value="Feature1"
           onChange={handleCheckboxChange}
         />
-        Feature 1
+       
+up-sell
+
+
       </label>
       {/* <br /> */}
       <label>
@@ -52,7 +55,7 @@ const handleSubmit=()=>{
           value="Feature2"
           onChange={handleCheckboxChange}
         />
-        Feature 2
+    order cancellation reason 
       </label>
       {/* <br /> */}
       <label>
@@ -61,17 +64,17 @@ const handleSubmit=()=>{
           value="Feature3"
           onChange={handleCheckboxChange}
         />
-        Feature 3
+        restocking   
       </label>
       {/* <br /> */}
-      <label>
+      {/* <label>
         <input
           type="checkbox"
           value="Feature3"
           onChange={handleCheckboxChange}
         />
         Feature 4
-      </label>
+      </label> */}
       </div>
       {/* <br /> */}
       

@@ -36,9 +36,10 @@
   cursor: pointer;;
 }
 .tabs-partnerdetail-box.active{
-  background-color: #8f43ff;
+  background-color: #E6FF2A;
+  
 
 }
 .tabs-partnerdetail-box.active h4{
-  color: #ffffff;
+  color: black;
 }

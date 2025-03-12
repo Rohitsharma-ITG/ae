@@ -25,13 +25,13 @@
 .main-feature-container button {
   margin-top: 15px;
   padding: 8px 12px;
-  background-color: #8f43ff;
-  color: white;
+  background-color: #E6FF2A;
+  color: black;
   border: none;
   cursor: pointer;
   border-radius: 5px;
 }
 
 .main-feature-container button:hover {
-  background-color: #987ec0;
+  background-color: #d3d8b1;
 }

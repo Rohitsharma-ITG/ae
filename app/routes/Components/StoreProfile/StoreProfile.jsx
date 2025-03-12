@@ -8,6 +8,7 @@ const StoreProfile = ({ storeinfo }) => {
   const chargeId = queryParams.get("charge_id");
   const { id } = useParams(); 
 
+
   console.log("Charge ID:", chargeId);
   console.log("Store ID:", id);
 
@@ -16,32 +17,49 @@ const StoreProfile = ({ storeinfo }) => {
   const [trialDays, setTrialDays] = useState();
   const [planType, setPlanType] = useState("");
   const [loading, setLoading] = useState(false);
+  const [subscribeId,setSubscibeId]=useState(null);
+ 
+  // const sendPlanDetailaftersubscribe = async () => {
+        
+  //   try {
+  //     const response = await fetch(`/api/plandetail/${id}`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         id: chargeId, 
+  //         planType
+  //       }),
+  //     });
 
-  useEffect(() => {
-    if (chargeId) {
-      const sendPlanDetail = async () => {
-        try {
-          const response = await fetch(`/api/plandetail/${chargeId}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              id: id, 
-            }),
-          });
+  //     const data = await response.json();
+  //     console.log("Plan Detail Response:", data);
+  //   } catch (error) {
+  //     console.error("Error sending plan details:", error);
+  //   }
+  // };
+  const sendPlanDetail = async () => {
+        
+    try {
+      const response = await fetch(`/api/plandetail/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chargeId : chargeId, 
+          interval:planType,
+          subscribeId
+        }),
+      });
 
-          const data = await response.json();
-          console.log("Plan Detail Response:", data);
-        } catch (error) {
-          console.error("Error sending plan details:", error);
-        }
-      };
-
-      sendPlanDetail();
+      const data = await response.json();
+      console.log("Plan Detail Response:", data);
+    } catch (error) {
+      console.error("Error sending plan details:", error);
     }
-  }, [chargeId, id]);s
-
+  };
   const handlelink = async () => {
     setLoading(true);
     try {
@@ -58,7 +76,10 @@ const StoreProfile = ({ storeinfo }) => {
       });
 
       const res = await response.json();
+      console.log("res",res?.url?.appSubscription?.id)
+     setSubscibeId(res?.url?.appSubscription?.id);
 
+       sendPlanDetail();
       if (res?.url?.confirmationUrl) {
         window.open(res?.url?.confirmationUrl, "_blank");
       }
@@ -69,9 +90,13 @@ const StoreProfile = ({ storeinfo }) => {
       setShowModal(false);
       setAmount("");
       setTrialDays("");
-      setPlanType("");
     }
   };
+  useEffect(() => {
+    if (chargeId) {
+     sendPlanDetail();
+    }
+  }, [chargeId]);
 
   return (
     <>
