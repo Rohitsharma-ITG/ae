@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "80394bd99ceb91c1f20019f9a91bd697"
-application_url = "https://kit-peoples-angels-olympics.trycloudflare.com"
+application_url = "https://singing-fought-trainers-must.trycloudflare.com"
 embedded = true
 name = "account-dev"
 handle = "account-dev-1"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://kit-peoples-angels-olympics.trycloudflare.com/auth/callback",
-  "https://kit-peoples-angels-olympics.trycloudflare.com/auth/shopify/callback",
-  "https://kit-peoples-angels-olympics.trycloudflare.com/api/auth/callback"
+  "https://singing-fought-trainers-must.trycloudflare.com/auth/callback",
+  "https://singing-fought-trainers-must.trycloudflare.com/auth/shopify/callback",
+  "https://singing-fought-trainers-must.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

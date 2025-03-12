@@ -1,5 +1,8 @@
 import { json } from '@remix-run/node';
 import { authenticate } from "../../shopify.server";
+import dotenv from "dotenv"
+dotenv.config();
+
 
 export async function action({ request }) {
   const { admin } = await authenticate.admin(request);
@@ -28,7 +31,7 @@ export async function action({ request }) {
     {
       variables: {
         name: "aeSubscription",
-        returnUrl: "https://admin.shopify.com/store/itgeeksabhi/apps/account-dev-1/app/storedetail/67ca990ea7ec55341ce8ea2c", 
+        returnUrl: process.env.RETURN_URL, 
         lineItems: [
           {
             plan: {
