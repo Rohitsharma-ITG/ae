@@ -26,14 +26,9 @@ const StoreProfile = ({ storeinfo }) => {
       });
 
       const res = await response.json();
-      console.log("API Response:", res?.url?.confirmationUrl);
 
       if (res?.url?.confirmationUrl) {
-         window.location.href='https://admin.shopify.com/store/itgeeksabhi/charges/227635167233/25032654922/RecurringApplicationCharge/confirm_recurring_application_charge?signature=BAh7BzoHaWRsKwhKABDUBQA6EmF1dG9fYWN0aXZhdGVU--572d3d569d90a87f0372780014293c74fb651fe2'; 
-        //  navigate(res?.url?.confirmationUrl); 
-        //  window.location.replace(res?.url?.confirmationUrl);
-        //  navigate(`https://admin.shopify.com/store/itgeeksabhi/charges/227635167233/25032654922/RecurringApplicationCharge/confirm_recurring_application_charge?signature=BAh7BzoHaWRsKwhKABDUBQA6EmF1dG9fYWN0aXZhdGVU--572d3d569d90a87f0372780014293c74fb651fe2`)
-
+        window.open(res?.url?.confirmationUrl, "_blank");
       }
     } catch (error) {
       console.error("Error:", error);
