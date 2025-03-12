@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // For navigation
 import "./StoreProfile.css";
 
 const StoreProfile = ({ storeinfo }) => {
   const [showModal, setShowModal] = useState(false);
   const [amount, setAmount] = useState(""); 
-  const [trialDays,setTrialDays]=useState("");
+  const [trialDays,setTrialDays]=useState();
   const [planType, setPlanType] = useState(""); 
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); 
 
   const handlelink = async () => {
     setShowModal(false);
