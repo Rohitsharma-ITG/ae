@@ -4,6 +4,7 @@ import { FiUser } from "react-icons/fi";
 import StoreProfile from "../Components/StoreProfile/StoreProfile"
 import OrderEditss from "../Components/OrderEdits/route.jsx"
 import { useParams } from '@remix-run/react';
+import AppFeatures from '../Components/AppFeatures/route.jsx'
 
 
 const PartnerDetail = () => {
@@ -30,7 +31,7 @@ const PartnerDetail = () => {
         console.error('Error fetching data:', error);
       }
     }
-    fetchData()
+    fetchData() 
   },[id])
 
  }
@@ -46,7 +47,8 @@ const PartnerDetail = () => {
         return <StoreProfile storeinfo={storeDetail}/>;
       case "orderEdits":
         return <OrderEditss/>
-      
+      case "features":
+        return <AppFeatures/>
     }
   };
 

@@ -1,17 +1,25 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // For navigation
+import React, { useState,useEffect } from "react";
 import "./StoreProfile.css";
+import { useLocation } from "react-router-dom";
+
 
 const StoreProfile = ({ storeinfo }) => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const chargeId = queryParams.get("charge_id");
   const [showModal, setShowModal] = useState(false);
   const [amount, setAmount] = useState(""); 
-  const [trialDays,setTrialDays]=useState("");
+  const [trialDays,setTrialDays]=useState();
   const [planType, setPlanType] = useState(""); 
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); 
-
+  
+  
+  
+  
+    
+  
+ 
   const handlelink = async () => {
-    setShowModal(false);
     setLoading(true);
     try {
       const response = await fetch("/api/subscription", {
@@ -35,8 +43,13 @@ const StoreProfile = ({ storeinfo }) => {
       console.error("Error:", error);
     } finally {
       setLoading(false);
+      setShowModal(false);
+      setAmount("");
+      setTrialDays("");
+      setPlanType("");
     }
   };
+
 
   return (
     <>
@@ -93,48 +106,59 @@ const StoreProfile = ({ storeinfo }) => {
         </div>
       </div>
 
-      {/* Modal Component */}
       {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-container">
-            <button className="close-btn" onClick={() => setShowModal(false)}>
-              ✖
-            </button>
-            <h3>Customize Plan</h3>
-            <div className="modal-content">
-              <div className="input-group">
-                <label>Amount</label>
-                <input
-                  type="text"
-                  placeholder="Enter amount"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)} // Update state
-                />
-              </div>
-              <div className="input-group">
-                <label>Type</label>
-                <select value={planType} onChange={(e) => setPlanType(e.target.value)}>
-                  <option value="">Select Type</option>
-                  <option value="EVERY_30_DAYS">Monthly</option>
-                  <option value="ANNUAL">Yearly</option>
-                </select>
-              </div>
-              <div className="input-group">
-                <label>TrialDays</label>
-                <input
-                  type="text"
-                  placeholder="Enter Trial Days"
-                  value={trialDays}
-                  onChange={(e) => setTrialDays(e.target.value)}
-                />
-              </div>
-              <button className="submit-btn" onClick={handlelink} disabled={loading}>
-                {loading ? <span className="spinner"></span> : "Submit"}
-              </button>
-            </div>
-          </div>
+  <div className="modal-overlay">
+    <div className="modal-container">
+      <button
+        className="close-btn"
+        onClick={() => !loading && setShowModal(false)} 
+      >
+        ✖
+      </button>
+      <h3>Customize Plan</h3>
+      <div className="modal-content">
+        <div className="input-group">
+          <label>Amount</label>
+          <input
+            type="text"
+            placeholder="Enter amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            disabled={loading} 
+          />
         </div>
-      )}
+        <div className="input-group">
+          <label>Type</label>
+          <select value={planType} onChange={(e) => setPlanType(e.target.value)} disabled={loading}>
+            <option value="">Select Type</option>
+            <option value="EVERY_30_DAYS">Monthly</option>
+            <option value="ANNUAL">Yearly</option>
+          </select>
+        </div>
+        <div className="input-group">
+          <label>TrialDays</label>
+          <input
+            type="text"
+            placeholder="Enter Trial Days"
+            value={trialDays}
+            onChange={(e) => setTrialDays(e.target.value)}
+            disabled={loading}
+          />
+        </div>
+        <button className="submit-btn" onClick={handlelink} disabled={loading}>
+          {loading ? "Processing..." : "Submit"}
+        </button>
+      </div>
+
+       {loading && (
+        <div className="loading-overlay">
+          <div className="spinner"></div>
+        </div>
+      )} 
+    </div>
+  </div>
+)}
+
 
     
     </>

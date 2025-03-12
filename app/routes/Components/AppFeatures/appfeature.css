@@ -1,0 +1,37 @@
+/* .main-feature-container{
+  display: flex;
+} */
+.top-headingp h2{
+  font-size: 1.2rem;
+  font-weight: 700;
+ }
+
+
+ .feature-input-container {
+  padding: 20px;
+  display: flex;
+  gap: 5rem;
+
+  font-size: 1.2rem;
+}
+
+.feature-input-container label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px; 
+}
+
+.main-feature-container button {
+  margin-top: 15px;
+  padding: 8px 12px;
+  background-color: #8f43ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.main-feature-container button:hover {
+  background-color: #987ec0;
+}

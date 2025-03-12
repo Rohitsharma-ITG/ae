@@ -2,6 +2,8 @@ import { json } from '@remix-run/node';
 import { authenticate } from "../../shopify.server";
 import dotenv from "dotenv"
 dotenv.config();
+ 
+
 
 
 export async function action({ request }) {
@@ -9,7 +11,6 @@ export async function action({ request }) {
 
   const body = await request.json();
   const { price, interval ,trialDays} = body;
-  console.log(price, interval ,trialDays);
  
   const response = await admin.graphql(
     `#graphql
