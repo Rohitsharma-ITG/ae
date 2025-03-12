@@ -6,6 +6,7 @@ import {
 } from "@shopify/shopify-app-remix/server";
 
 import { MongoDBSessionStorage } from "@shopify/shopify-app-session-storage-mongodb";
+import { restResources } from "@shopify/shopify-api/rest/admin/2025-01";
 import dotenv from "dotenv";
 import './db.server'
 dotenv.config();
@@ -16,6 +17,7 @@ const shopify = shopifyApp({
   scopes: process.env.SCOPES?.split(","),
   appUrl: process.env.SHOPIFY_APP_URL || "",
   authPathPrefix: "/auth",
+  restResources,
   sessionStorage: new MongoDBSessionStorage(
     process.env.MONGO_URI,
    
@@ -23,7 +25,7 @@ const shopify = shopifyApp({
   distribution: AppDistribution.AppStore,
   future: {
     unstable_newEmbeddedAuthStrategy: true,
-    removeRest: true,
+    removeRest: false,
   },
   ...(process.env.SHOP_CUSTOM_DOMAIN
     ? { customShopDomains: [process.env.SHOP_CUSTOM_DOMAIN] }

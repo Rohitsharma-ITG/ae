@@ -31,7 +31,7 @@ export async function action({ request }) {
     }`,
     {
       variables: {
-        name: "aeSubscription",
+        name: "customize",
         returnUrl: process.env.RETURN_URL, 
         trialDays:Number(trialDays),
         lineItems: [

@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "80394bd99ceb91c1f20019f9a91bd697"
-application_url = "https://b86e-49-249-2-6.ngrok-free.app"
+application_url = "https://frequent-signs-ranks-charitable.trycloudflare.com"
 embedded = true
 name = "account-dev"
 handle = "account-dev-1"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://b86e-49-249-2-6.ngrok-free.app/auth/callback",
-  "https://b86e-49-249-2-6.ngrok-free.app/auth/shopify/callback",
-  "https://b86e-49-249-2-6.ngrok-free.app/api/auth/callback"
+  "https://frequent-signs-ranks-charitable.trycloudflare.com/auth/callback",
+  "https://frequent-signs-ranks-charitable.trycloudflare.com/auth/shopify/callback",
+  "https://frequent-signs-ranks-charitable.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
