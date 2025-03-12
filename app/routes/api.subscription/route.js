@@ -43,7 +43,6 @@ export async function action({ request }) {
   );
 
   const data = await response.json();
-  console.log('data===',data.data.appSubscriptionCreate);
   if (data.data.appSubscriptionCreate.userErrors.length > 0) {
     return json({ error: data.data.appSubscriptionCreate.userErrors });
   }
