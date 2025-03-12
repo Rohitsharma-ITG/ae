@@ -34,6 +34,9 @@
 .tab-content h4{
   font-size: 15px;
 }
+.tabs-partnerdetail-box:hover{
+  cursor: pointer;;
+}
 .tabs-partnerdetail-box.active{
   background-color: #8f43ff;
 

@@ -6,11 +6,15 @@ export async function action({ request }) {
 
   const body = await request.json();
   const { price, interval } = body;
-
+ 
   const response = await admin.graphql(
     `#graphql
-    mutation AppSubscriptionCreate($name: String!, $lineItems: [AppSubscriptionLineItemInput!]!, $returnUrl: URL!) {
-      appSubscriptionCreate(name: $name, returnUrl: $returnUrl, lineItems: $lineItems) {
+    mutation AppSubscriptionCreate(
+      $name: String!
+      $lineItems: [AppSubscriptionLineItemInput!]!
+      $returnUrl: URL!
+    ) {
+      appSubscriptionCreate(name: $name, returnUrl: $returnUrl, lineItems: $lineItems, test: true) {
         userErrors {
           field
           message
@@ -24,7 +28,7 @@ export async function action({ request }) {
     {
       variables: {
         name: "aeSubscription",
-        returnUrl: "http://account-dev-1.shopifyapps.com/", 
+        returnUrl: "https://admin.shopify.com/store/itgeeksabhi/apps/account-dev-1/app/storedetail/67ca990ea7ec55341ce8ea2c", 
         lineItems: [
           {
             plan: {
@@ -33,7 +37,7 @@ export async function action({ request }) {
                   amount: price,
                   currencyCode: "USD"
                 },
-                interval: interval
+                interval: interval,
               }
             }
           }
@@ -41,8 +45,9 @@ export async function action({ request }) {
       },
     }
   );
-
+  
   const data = await response.json();
+  console.log('data====',data);
   if (data.data.appSubscriptionCreate.userErrors.length > 0) {
     return json({ error: data.data.appSubscriptionCreate.userErrors });
   }
